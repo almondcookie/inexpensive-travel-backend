@@ -16,27 +16,27 @@ const constants = require('../constants');
 //     })
 // }
 
-// const login = (req, res) => {
-//     User.findOne({
-//         where: {
-//             username: req.body.username,
-//             password: req.body.password
-//         }
-//     })
-//     .then(foundUser => {
-//         if(foundUser){
-//             res.status(constants.SUCCESS).json({"user": foundUser})
-//         }
-//         else{
-//             res.status(constants.BAD_REQUEST).send(`ERROR: Incorrect Username/Password`);
-//         }
-//     })
-//     .catch(err => {
-//         res.status(constants.INTERNAL_SERVER_ERROR).send(`ERROR: ${err}`);
-//     })
-// };
+const login = (req, res) => {
+    User.findOne({
+        where: {
+            username: req.body.username,
+            password: req.body.password
+        }
+    })
+    .then(foundUser => {
+        if(foundUser){
+            res.status(constants.SUCCESS).json({"user": foundUser})
+        }
+        else{
+            res.status(constants.BAD_REQUEST).send(`ERROR: Incorrect Username/Password`);
+        }
+    })
+    .catch(err => {
+        res.status(constants.INTERNAL_SERVER_ERROR).send(`ERROR: ${err}`);
+    })
+};
 
-// module.exports = {
-//     signup,
-//     login
-// }
+module.exports = {
+    // signup,
+    login
+}

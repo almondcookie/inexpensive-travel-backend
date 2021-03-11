@@ -17,13 +17,13 @@ const ctrl = require("../controllers");
 
 // //Login route
 // router.get("/login", ctrl.users.renderLogin);
-// router.post("/login", ctrl.users.login);
+router.post("/login", ctrl.users.login);
 
 // //Edit route
-// router.put("/profile/:index", ctrl.users.addWorkout);
+// router.put("/profile/:index", ctrl.users.addPlace);
 // router.put("/profile/:index/edit", ctrl.users.editUser);
 
 // //Delete route
 // router.delete("/profile/:index/edit", ctrl.users.deleteUser);
 
-// module.exports = router;
+module.exports = router;
