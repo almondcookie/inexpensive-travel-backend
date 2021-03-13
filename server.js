@@ -1,23 +1,23 @@
 
 const express = require('express'); //from documentation: express is function
-// const bodyParser = require('body-parser');
-// const jwt = require('jsonwebtoken');
+const bodyParser = require('body-parser');
+const jwt = require('jsonwebtoken');
 const app = express(); //app is an object
 const methodOverride = require("method-override");
 const routes = require("./routes");
 require('dotenv').config();
-// const cors = require('cors');
-// const constants = require('./constants');
+const cors = require('cors');
+const constants = require('./constants');
 
-// const corsOptions = {
-//     origin: ['http://localhost:3000'],
-//     methods: "GET,POST,PUT,DELETE",
-//     credentials: true, //allows session cookies to be sent back and forth
-//     optionsSuccessStatus: 200 //legacy browsers
-//   }
+const corsOptions = {
+    origin: ['http://localhost:3000'],
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true, //allows session cookies to be sent back and forth
+    optionsSuccessStatus: 200 //legacy browsers
+  }
 
-// app.use(cors(corsOptions))
-// app.use(bodyParser.json());
+app.use(cors(corsOptions))
+app.use(bodyParser.json());
 
 
 // Middleware

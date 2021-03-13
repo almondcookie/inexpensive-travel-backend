@@ -7,9 +7,10 @@ const ctrl = require("../controllers");
 
 // //New route
 // router.get("/signup", ctrl.users.renderSignup);
-// router.post("/signup", ctrl.users.signup);
+router.post("/signup", ctrl.users.signup);
 
 // //Show profile route
+// console.log(`index: ${index}`)
 // router.get("/profile/:index", ctrl.users.renderProfile);
 
 // //Edit profile route
