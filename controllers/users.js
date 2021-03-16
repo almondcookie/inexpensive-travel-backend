@@ -19,7 +19,7 @@ const signup = (req, res) => {
 }
 
 const renderProfile = (req, res) => {
-    // console.log("Got to render profile")
+    console.log("at controllers - renderProfile")
     User.findByPk(req.params.index, {
         include: [
         {
@@ -30,10 +30,11 @@ const renderProfile = (req, res) => {
     .then(userProfile => {
         Place.findAll()
         .then(allPlaces => {
-            res.render('profile.ejs', {
-                user: userProfile,
-                place: allPlaces,
-            });
+            // res.render('profile.ejs', {
+            //     user: userProfile,
+            //     place: allPlaces,
+            // });
+            res.status(constants.SUCCESS).json({user: userProfile, place: allPlaces})
         })
     });
 };
@@ -47,8 +48,10 @@ const login = (req, res) => {
         }
     })
     .then(foundUser => {
+        console.log(`before if and foundUser: ${foundUser}`)
         if(foundUser){
-           res.status(constants.SUCCESS).json({"user": foundUser})
+            console.log("found user")
+           res.status(constants.SUCCESS).json({"user": foundUser.id})
             // res.redirect(`/users/profile/${foundUser.id}`);
         }
         else{
@@ -56,6 +59,7 @@ const login = (req, res) => {
         }
     })
     .catch(err => {
+        console.log("problem")
         res.status(constants.INTERNAL_SERVER_ERROR).send(`ERROR: ${err}`);
     })
 };
