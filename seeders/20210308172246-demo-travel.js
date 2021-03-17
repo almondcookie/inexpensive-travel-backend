@@ -1,7 +1,7 @@
 'use strict';
 
 // const { DESCRIBE } = require("sequelize/types/lib/query-types");
-
+    
 module.exports = {
   up: async (queryInterface, Sequelize) => {
      await queryInterface.bulkInsert('Places', [
